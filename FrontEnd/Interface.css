@@ -1,0 +1,152 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    margin: 0px auto;
+    width: 1000px;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    background-attachment:  fixed; 
+    background-image: url(../img/bgk5.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    box-shadow: -5px 7px 20px rgb(0, 0, 0);
+
+}
+
+.banner{
+    width: 1000px;
+    height: 250px;
+    background-image: url(../img/IOT_Banner3.jpg);
+    background-repeat: no-repeat;   
+}
+
+.banner2{
+    background-image: linear-gradient(to right, red,orange,yellow,green,yellow,orange,red);
+    opacity: 0.9;
+}
+
+.content{
+    width: 1000px;
+    min-height: 700px;
+    opacity: 0.9;
+}
+
+.left_menu{
+    background-color: #2D2C30;
+    width: 200px;
+    height: 700px;
+    float: left;
+}
+
+.list_menu{
+    width: 200px;
+    height: 250px;
+}
+
+.list_menu > ul > li{
+    list-style: none;
+    border-bottom: 1px solid wheat;
+}
+
+.list_menu > ul > li > a{
+    /* margin-left: 15px; */
+    text-decoration: none;
+    color: #A9A4B9;
+    line-height: 50px;
+    display: block;
+}
+
+.list_menu > ul > li > a:hover{
+    background-color: orange;
+    color: red;
+    font-weight: bold;
+    transition: ease-in 0.5s;
+    -moz-transition: ease-in 0.5s;
+    -webkit-transition: ease-in 0.5s;
+    font-size: 16px;
+    /* display: block; */
+}
+
+.list_menu > ul  > li:hover .list_menu2{
+    display: inline-block;
+}
+
+.list_menu2{
+    width: 200px;
+    min-height: 120px;
+    background-color: #333630;
+    display: none;
+    position: absolute;
+    z-index: 2;
+    opacity: 0.8;   
+}
+
+.list_menu2 > li{
+    list-style: none;
+    border-bottom: 2px solid #c7c5cc;
+}
+
+.list_menu2 > li > a{
+    text-decoration: none;
+    color: #c3c9be;
+    display: block;
+    text-indent: 15px;
+    line-height: 40px;
+}
+
+.list_menu2 > li > a:hover{
+    background-color: orange;
+    border-left: 5px solid blue;
+    color: red;
+}
+
+.right_menu{
+    background-color: rgb(71, 68, 76);
+    width: 800px;
+    height: 700px;
+    float: left;
+}
+
+.temp{
+    font-family: 'Courier New', Courier, monospace;
+    width: 200px;
+    height: 100px;
+    border: 3px solid black;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px black;
+    background-color: rgb(240, 152, 94);
+    margin: 50px;
+    float: left;
+}
+
+.humi{
+    width: 200px;
+    height: 100px;
+    border: 3px solid black;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px black;
+    background-color: rgb(129, 148, 230);
+    margin: 50px;
+    float: left;
+}
+
+.gas{
+    width: 200px;
+    height: 100px;
+    border: 3px solid black;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px black;
+    background-color: beige;
+    margin: 50px;
+    float: left;
+}
+
+
+
+
+

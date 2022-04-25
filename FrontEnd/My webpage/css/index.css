@@ -1,0 +1,145 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    margin: 0px auto;
+    width: 900px;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    background-size: 100%;
+    background-image: url(../img/bgk5.jfif);
+    background-repeat: no-repeat;
+    background-attachment:  fixed; 
+    box-shadow: -5px 5px 20px black;
+}
+
+.bg_banner{
+    width: 900px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-image: url(../img/banner_IOT.png);
+}
+
+.bg_menu{
+    width: 900px;
+    height: 40px;
+    background-image: linear-gradient(0, #999999, #ccc);
+}
+
+.bg_menu > ul > li{
+    list-style: none;
+    float: left;
+}
+
+.bg_menu > ul > li > a{
+    text-decoration: none;
+    padding-right: 40px;
+    padding-left: 40px;
+    line-height: 40px;
+    display: block;
+    border-right: 2px solid black;
+}
+
+.bg_menu > ul  > li  > a:hover{
+    background: orange;
+    color: black;
+    font-weight: bold;
+    transition: ease-in 0.5s;
+    -moz-transition: ease-in 0.5s;
+    -webkit-transition: ease-in 0.5s;
+}
+
+#Refesh a{
+    text-decoration: none;
+}
+
+#Refesh a:hover{
+    font-style: italic;
+    color: red;
+    font-size: 20px;
+}
+
+.bg_menu > ul  > li:hover .bg_menu_ht{
+    display: block;
+}
+
+.bg_menu_ht{
+    width: 200px;
+    min-height: 100px;
+    background-color: #ccc;
+    display: none;
+    position: absolute;
+    z-index: 3;
+    opacity: 0.7;
+}
+
+.bg_menu_ht > li{
+    list-style: none;
+}
+
+.bg_menu_ht > li > a{
+    text-decoration: none;
+    color: blue;
+    display: block;
+    text-indent: 15px;
+    line-height: 40px;
+}
+
+.bg_menu_ht > li  a:hover{
+    background: red;
+    border-left: 5px solid blue;
+}
+
+.bg_mid{
+    width: 900px;
+    min-height: 100vh;
+    background-size: 100%; 
+    background-image: linear-gradient(0,  rgba(171, 178, 185, 0.7) ,rgba(93, 109, 126, 0.7));
+    position: relative;
+    float:left;
+}
+
+
+.sr_temp, .sr_humi, .sr_gas {
+    width: 180px;
+    height: 200px;
+    border: 3px solid orange;
+    border-radius: 15px;
+    position: relative;
+    float: left;  
+    margin-right: 50px;
+    margin-top: 50px;
+    box-shadow: 5px 5px 15px #333;
+}
+
+.sr_add{
+    width: 180px;
+    height: 200px;
+    border: 3px solid orange;
+    border-radius: 15px;
+    position: relative;
+    float: left;
+    margin-top: 120px;
+    left: 50%;
+    transform: translate(-50%);
+    box-shadow: 5px 5px 15px #333;
+}
+
+.sr_temp > img, .sr_humi > img, .sr_gas > img, .sr_add > img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sr_temp > p, .sr_humi > p, .sr_gas > p{
+    font-size: 22px;
+    color: chartreuse;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    padding-top: 220px;
+}

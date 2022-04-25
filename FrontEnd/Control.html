@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Interface.css">
+    <link rel="stylesheet" type="text/css" href="Control.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src='https://cdn.staticfile.org/apexcharts/3.8.3/apexcharts.min.js'></script>
+    <script src='https://code.jquery.com/jquery-3.6.0.js' integrity='sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk='
+    crossorigin='anonymous'></script>
+    <link rel="icon" href="../img/logoPTIT.png">
+    <title>Hệ Thống IOT</title>
+</head>
+<body>
+    <div class="banner"></div>
+    <div class="banner2" style="width: 1000px; height: 10px;"></div>
+    <div class="content">
+        <div class="left_menu">
+            <div class="list_menu">
+                <ul>
+                    <li>
+                        <img style="float: left; padding: 9px 10px; width: 32px; height: 32px;" src="../icon/icon_home1.png">
+                        <a href="/html/display_sensor.html" style="padding-left: 5px;">Trang Chủ</a>
+                    </li>
+    
+                    <li>
+                        <img style="float: left; padding: 9px 10px; width: 32px; height: 32px;" src="../icon/icon_system.png">
+                        <a href="#">Hệ Thống</a>
+                        <ul class="list_menu2" style="margin-left: 205px; margin-top: -50px;">
+                            <li>
+                                <a href="html/display_sensor.html">Hiển Thị Thông Số</a>
+                            </li>
+<!--     
+                            <li>
+                                <a href="../html/control.html">Điều Khiển Hệ Thống</a>
+                            </li>
+        
+                            <li>
+                                <a href="Display_plot.html">Đồ Thị</a>
+                            </li> -->
+        
+                        </ul>
+                    </li>
+    
+                    <li>
+                        <img style="float: left; padding: 9px 10px; width: 32px; height: 32px;" src="../icon/icon_history.png">
+                        <a href="#">Lịch Sử</a>
+                    </li>
+    
+                    <li>
+                        <img style="float: left; padding: 9px 10px; width: 32px; height: 32px;" src="../icon/icon_info.png">
+                        <a href="#">Thông Tin</a>
+                    </li>
+    
+                    <li>
+                        <img style="float: left; padding: 9px 10px; width: 32px; height: 32px;" src="../icon/icon_setting.png">
+                        <a href="#">Cài Đặt</a>
+                    </li>
+    
+                </ul>
+            </div>
+        </div>
+        <div class="right_menu" style="position: relative;">
+
+
+            <div class="LED2" style="padding-left:280px;">
+                <div style="color: beige;  margin: auto; width: 50%; padding: 10px;text-align: center">
+                    Đèn phòng khách
+                </div>
+                <div class="sr_led1">
+                    <img id="icon_led1" src="/icon_control/icon_ledoff.png">
+                </div>
+                <div class="sr_sw1">
+                    <img  id="icon_sw1" style="cursor: pointer;" onclick="changeStatus1()" src="/icon_control/icon_sw_off.png">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <script type="text/javascript">
+
+        function changeStatus(){
+            console.log(document.getElementById('icon_sw').src);
+            if(document.getElementById('icon_sw').src == 'http://127.0.0.1:5501/icon_control/icon_sw_off.png'){
+                callAjax(1);
+                document.getElementById('icon_sw').src = 'http://127.0.0.1:5501/icon_control/icon_sw_on.png';
+                document.getElementById('icon_led').src = 'http://127.0.0.1:5501/icon_control/icon_ledon.png';
+            }
+            
+            else if(document.getElementById('icon_sw').src == 'http://127.0.0.1:5501/icon_control/icon_sw_on.png'){
+                callAjax(0);
+                document.getElementById('icon_sw').src = 'http://127.0.0.1:5501/icon_control/icon_sw_off.png';
+                document.getElementById('icon_led').src = 'http://127.0.0.1:5501/icon_control/icon_ledoff.png';
+            }
+        }
+
+        function changeStatus1(){
+            console.log(document.getElementById('icon_sw1').src);
+            if(document.getElementById('icon_sw1').src == 'http://127.0.0.1:5501/icon_control/icon_sw_off.png'){
+                callAjax1(1);
+                document.getElementById('icon_sw1').src = 'http://127.0.0.1:5501/icon_control/icon_sw_on.png';
+                document.getElementById('icon_led1').src = 'http://127.0.0.1:5501/icon_control/icon_ledon.png';
+            }
+            
+            else if(document.getElementById('icon_sw1').src == 'http://127.0.0.1:5501/icon_control/icon_sw_on.png'){
+                callAjax1(0);
+                document.getElementById('icon_sw1').src = 'http://127.0.0.1:5501/icon_control/icon_sw_off.png';
+                document.getElementById('icon_led1').src = 'http://127.0.0.1:5501/icon_control/icon_ledoff.png';
+            }
+        }
+
+        function changeStatus2(){
+            console.log(document.getElementById('icon_sw2').src);
+            if(document.getElementById('icon_sw2').src == 'http://127.0.0.1:5501/icon_control/icon_sw_off.png'){
+                callAjax2(1);
+                document.getElementById('icon_sw2').src = 'http://127.0.0.1:5501/icon_control/icon_sw_on.png';
+                document.getElementById('icon_led2').src = 'http://127.0.0.1:5501/icon_control/icon_ledon.png';
+            }
+            
+            else if(document.getElementById('icon_sw2').src == 'http://127.0.0.1:5501/icon_control/icon_sw_on.png'){
+                callAjax2(0);
+                document.getElementById('icon_sw2').src = 'http://127.0.0.1:5501/icon_control/icon_sw_off.png';
+                document.getElementById('icon_led2').src = 'http://127.0.0.1:5501/icon_control/icon_ledoff.png';
+            }
+        }
+        
+
+        function callAjax(data) {
+            $.ajax({
+                method: "POST",
+                url: "http://127.0.0.1:5000/test",
+                data: JSON.stringify({ledKitchen:data}),
+                contentType: 'application/json'
+            })
+            .done(function( msg ) {
+                if (msg == 1)
+                    alert( "Đã bật đèn" );
+                else if (msg == 0)
+                    alert( "Đã tắt đèn" );
+            });
+        }
+        function callAjax1(data) {
+            $.ajax({
+                method: "POST",
+                url: "http://127.0.0.1:5000/test",
+                data: JSON.stringify({led:data}),
+                contentType: 'application/json'
+            })
+            .done(function( msg ) {
+                if (msg == 1)
+                    alert( "Đã bật đèn" );
+                else if (msg == 0)
+                    alert( "Đã tắt đèn" );
+            });
+        }
+        function callAjax2(data) {
+            $.ajax({
+                method: "POST",
+                url: "http://127.0.0.1:5000/test",
+                data: JSON.stringify({led:data}),
+                contentType: 'application/json'
+            })
+            .done(function( msg ) {
+                if (msg == 1)
+                    alert( "dasdhasdk" );
+                else if (msg == 0)
+                    alert( "Đã tắt đèn" );
+            });
+        }
+    </script>
+</html>

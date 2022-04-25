@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <!-- <script type="text/javascript" src="chart.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src='https://cdn.staticfile.org/apexcharts/3.8.3/apexcharts.min.js'></script>
+    <script src='https://code.jquery.com/jquery-3.6.0.js' integrity='sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk='
+    crossorigin='anonymous'></script>
+    <link rel="icon" href="../img/logoPTIT.png">
+    <title>Hệ Thống IoT</title>
+</head>
+
+<body>
+    <div class="bg_banner"></div>
+
+    <div class="bg_menu">
+        <ul>
+            <li>
+                <a href="../index.html">
+                    <img style="float: left; padding-top: 5px; padding-right: 2px;" src="../icon/icon_home.png">
+                    Trang Chủ
+                </a>
+            </li>
+
+            <li>
+                <a href="#">Hệ Thống</a>
+                <ul class="bg_menu_ht">
+                    <li>
+                        <a href="../controlLed.html">Điều Khiển Thiết Bị</a>
+                    </li>
+
+                    <li>
+                        <a href="../chartHumi.html">Đồ thị độ ẩm</a>
+                        <a href="../chartTemp.html">Đồ thị nhiệt độ</a>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">Thông Tin</a>
+            </li>
+            <li>
+                <a href="#" class ="log">Lịch Sử</a>
+            </li>
+            <div>
+                <a href="../php/login.php" style="float: left; padding-top: 5px; padding-left: 210px;">
+                    <img src="../icon/icon_sigout.png">
+                </a>
+            </div>
+        </ul>
+    </div>
+
+    <div class="bg_mid">
+        <div class="sr_temp" style="margin-left: 120px;"> <!--style="margin-left: 120px;" -->
+            <img src="../icon/icon_temp.png">    
+                <p id="temp_value"></p>
+        </div>
+        <div class="sr_humi">
+            <img src="../icon/icon_humi.png">
+            <p id="humi_value"></p>
+        </div>
+
+        <div class="sr_gas">
+            <img src="../icon/icon_gas.png">
+            <p id="gas_value"></p>
+        </div>
+ 
+        <script>
+                function callAjax() {
+                    return $.ajax({
+                            method: "GET",
+                            url: "http://127.0.0.1:5000/test",
+                            // data: JSON.stringify({led:5}),
+                            contentType: 'application/json'
+                        }).done(function(res) {
+                            $("#temp_value").html("Temp: " + res.temp + '&#176;C') 
+                            $("#humi_value").html("Humi: " + res.humi + '%')
+                            $("#gas_value").html("Gas: " + res.mq2 + '%')   
+                            //console.log(res.mq2) 
+                        });
+                }
+                $(document).ready(function(){
+                    setInterval(callAjax,5000);
+                    $(".log").on("click", function()
+                    {
+                        window.location.replace("http://127.0.0.1:5000/log");
+                    });
+                });
+                
+        
+            </script>
+        <div class="sr_add">
+            <img src="../icon/icon_add.png">
+        </div>
+
+    </div>
+</body>
+
+</html>

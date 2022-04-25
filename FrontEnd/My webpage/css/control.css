@@ -1,0 +1,21 @@
+.sr_led{
+    width: 180px;
+    height: 200px;
+    border: 3px solid orange;
+    border-radius: 15px;
+    position: relative; 
+    margin-left: 50px;
+    margin-top: 50px;
+    box-shadow: 5px 5px 15px #333;
+}
+
+.sr_led > img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sr_sw{
+    margin-left: 110px;
+}
