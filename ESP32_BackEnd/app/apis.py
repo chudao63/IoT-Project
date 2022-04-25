@@ -21,12 +21,10 @@ class TestApi(Resource):
 
 		print(data)
 		if data['led'] == 1:
-			# logging.error(data)
 			mqtt.publish("MQTT/SendQT", "LEDON")
 			setup_logger(name = 'log', log_file= 'logs/log.txt', message= "LEDON")
 	
 		if data['led'] == 0:
-			# logging.error(data)
 			mqtt.publish("MQTT/SendQT", "LEDOFF")
 			setup_logger(name = 'log', log_file= 'logs/log.txt', message= "LEDOFF")
 		
