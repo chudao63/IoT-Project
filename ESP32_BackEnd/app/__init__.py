@@ -16,13 +16,13 @@ coloredlogs.install(level='INFO', fmt = '[%(hostname)s] [%(pathname)s:%(lineno)s
 """
 Kết nối đến mySQL server
 """
-app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql://root:123456@localhost/espmqtt"
+app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql://root:123456@localhost/hethongnhung"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SQLALCHEMY_POOL_SIZE'] = 20
 db = SQLAlchemy(app)
 CORS(app, support_credentials=True)
 
-app.config['MQTT_BROKER_URL'] = 'broker.hivemq.com'  
+app.config['MQTT_BROKER_URL'] = 'Mqtt.mysignage.vn'  
 app.config['MQTT_BROKER_PORT'] = 1883
 app.config['MQTT_USERNAME'] = ''
 app.config['MQTT_PASSWORD'] = ''

@@ -1,5 +1,6 @@
-import imp
+
 import logging
+
 from app import api
 from flask_restful import Resource, Api, request
 from app import mqtt
@@ -7,7 +8,7 @@ from app.models import ReadDataSensorTable
 from write_log import setup_logger
 from app.subcriber import sensorData
 
-class TestApi(Resource):
+class EspControlApi(Resource):
 	def get(self):
 		global ledState
 		readSensors = ReadDataSensorTable.query.order_by(ReadDataSensorTable.id.desc()).first()
@@ -16,25 +17,15 @@ class TestApi(Resource):
 		return readSensorDict
 
 	def post(self):
+		logging.warning("on message")
 		data = request.get_json(force=True) 
-		logging.warning(data)
+		logging.error(data)
+		mqtt.publish("hethongnhung/control", f"{data['led']} {data['relay']}")
 
-		print(data)
-		if data['led'] == 1:
-			mqtt.publish("MQTT/SendQT", "LEDON")
-			setup_logger(name = 'log', log_file= 'logs/log.txt', message= "LEDON")
-	
-		if data['led'] == 0:
-			mqtt.publish("MQTT/SendQT", "LEDOFF")
-			setup_logger(name = 'log', log_file= 'logs/log.txt', message= "LEDOFF")
-		
+		return "DONE!"
 
 
-
-# class DownloadFileLogApi(Resource):
-#     def get(self):
-#         pass
 api.add_resource(
-	TestApi,
-	"/test"
+	EspControlApi,
+	"/control"
 )

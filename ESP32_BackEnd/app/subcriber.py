@@ -10,7 +10,7 @@ from write_log import setup_logger
 
 count = 0
 sensorData = {}
-mqtt.subscribe("ESP32/SendQT")
+mqtt.subscribe("hethongnhung/sensor")
 
 @mqtt.on_connect()
 def handle_connect(client, userdata, flags, rc):
@@ -50,11 +50,7 @@ def handle_mqtt_message(client, userdata, message):
 		db.session.add(insertData)
 		db.session.commit()
 
-		readSensors = ReadDataSensorTable.query.order_by(ReadDataSensorTable.id.desc()).first()
-		readSensorDict = readSensors.__dict__
-		readSensorDict.pop("_sa_instance_state")
-
-		setup_logger(name = 'log', log_file= 'logs/log.txt', message= readSensorDict)
+		
 
 		 
 
